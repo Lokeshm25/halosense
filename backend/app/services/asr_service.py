@@ -73,8 +73,8 @@ def transcribe(wav_path: str, device: str = "auto") -> dict:
 
     pipe = _get_pipeline(device)
 
-    import soundfile as sf
     import librosa
+    import soundfile as sf
 
     # Load audio explicitly to avoid ffmpeg dependency
     waveform, sr = sf.read(wav_path)

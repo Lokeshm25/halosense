@@ -10,9 +10,9 @@ Lane: B
 
 import csv
 import logging
-from pathlib import Path
 
 from fastapi import APIRouter
+
 from app.config import settings
 from app.schemas import EvalSummary
 
@@ -37,7 +37,7 @@ async def eval_summary():
     # Load hand labels
     hand_labels: dict = {}
     try:
-        with open(labels_path, "r", encoding="utf-8") as f:
+        with open(labels_path, encoding="utf-8") as f:
             reader = csv.DictReader(f)
             for row in reader:
                 clip_id = row.get("clip_id", "").strip()

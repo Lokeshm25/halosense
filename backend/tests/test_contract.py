@@ -27,7 +27,6 @@ from app.schemas import (
     TrendDirection,
 )
 
-
 PROJECT_ROOT = Path(__file__).resolve().parent.parent.parent
 CACHE_FILE = PROJECT_ROOT / "data" / "cache" / "analyses.json"
 
@@ -36,7 +35,7 @@ def load_cache() -> list:
     """Load and return the analyses.json as a list."""
     if not CACHE_FILE.exists():
         pytest.skip(f"Cache file not found: {CACHE_FILE}")
-    with open(CACHE_FILE, "r", encoding="utf-8") as f:
+    with open(CACHE_FILE, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -89,7 +88,6 @@ class TestContract:
         """Enum fields must contain only valid values."""
         data = load_cache()
         for item in data:
-            cid = item.get("clip_id", "?")
             MoodLabel(item["mood"]["label"])  # raises ValueError if invalid
             Quadrant(item["mood"]["quadrant"])  # raises ValueError if invalid
             if item.get("lap_context"):

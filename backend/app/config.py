@@ -3,10 +3,9 @@ Application configuration — reads from .env file.
 Every value has a sane default so the app boots with an empty .env.
 """
 
-import os
 from pathlib import Path
-from pydantic_settings import BaseSettings
 
+from pydantic_settings import BaseSettings
 
 # Resolve project root (two levels up from this file: app/config.py → backend/ → root/)
 _BACKEND_DIR = Path(__file__).resolve().parent.parent

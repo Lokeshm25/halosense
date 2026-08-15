@@ -10,8 +10,6 @@ Lane: B
 
 import json
 import logging
-from pathlib import Path
-from typing import Optional
 
 from app.config import settings
 
@@ -24,14 +22,14 @@ def _make_filename(driver: str, race: str) -> str:
     return f"{driver.lower()}_{slug}.json"
 
 
-def _load_laps_file(driver: str, race: str) -> Optional[dict]:
+def _load_laps_file(driver: str, race: str) -> dict | None:
     """Load a single lap JSON file from data/laps/."""
     filename = _make_filename(driver, race)
     path = settings.resolve_path(settings.LAPS_DIR) / filename
     if not path.exists():
         logger.warning(f"Lap file not found: {path}")
         return None
-    with open(path, "r", encoding="utf-8") as f:
+    with open(path, encoding="utf-8") as f:
         return json.load(f)
 
 
@@ -40,7 +38,7 @@ def _mark_radio_laps(laps: list, driver: str, race: str) -> list:
     from app.services.cache_service import get_cache
     cache = get_cache()
     radio_laps = set()
-    for clip_id, analysis in cache.items():
+    for _clip_id, analysis in cache.items():
         if analysis.get("driver") == driver and analysis.get("race") == race:
             if analysis.get("lap") is not None:
                 radio_laps.add(analysis["lap"])
@@ -50,7 +48,7 @@ def _mark_radio_laps(laps: list, driver: str, race: str) -> list:
     return laps
 
 
-def get_lap_series(driver: str, race: str) -> Optional[dict]:
+def get_lap_series(driver: str, race: str) -> dict | None:
     """Build a full LapSeries for the given driver+race. Returns None if no data."""
     data = _load_laps_file(driver, race)
     if data is None:
@@ -68,7 +66,7 @@ def get_lap_series(driver: str, race: str) -> Optional[dict]:
     }
 
 
-def get_lap_context(driver: str, race: str, lap: int) -> Optional[dict]:
+def get_lap_context(driver: str, race: str, lap: int) -> dict | None:
     """Build LapContext for a specific lap (used by POST /api/analyze)."""
     series = get_lap_series(driver, race)
     if series is None:

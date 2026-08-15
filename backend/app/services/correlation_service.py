@@ -8,7 +8,6 @@ Lane: B
 """
 
 import logging
-from typing import Optional
 
 logger = logging.getLogger(__name__)
 
@@ -67,9 +66,9 @@ def compute_correlation() -> dict:
     p_val = round(float(p), 4)
 
     # Next-lap correlation
-    r_next: Optional[float] = None
+    r_next: float | None = None
     next_points = []
-    for clip_id, analysis in cache.items():
+    for _clip_id, analysis in cache.items():
         mood = analysis.get("mood", {})
         stress = mood.get("stress_index")
         lap_ctx = analysis.get("lap_context")

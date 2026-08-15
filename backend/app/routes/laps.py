@@ -7,7 +7,8 @@ Powers the detailed lap chart.
 Lane: B
 """
 
-from fastapi import APIRouter, Query, HTTPException
+from fastapi import APIRouter, HTTPException, Query
+
 from app.schemas import LapSeries
 from app.services.lap_service import get_lap_series
 

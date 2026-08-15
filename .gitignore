@@ -62,6 +62,8 @@ models/
 *.onnx
 
 # ── Raw / intermediate audio (see docs/DATASET.md) ───────────
+# Large offline source tables are regenerated locally and never committed.
+*.parquet
 # We COMMIT the final 16 kHz mono WAV clips in data/clips/ (~10 MB total)
 # because the demo must work on a fresh clone with zero setup.
 # We do NOT commit the raw downloads they were cut from.
@@ -115,3 +117,15 @@ docs/
 !README.md
 *.txt
 *.docx
+
+# Enhancement plan and reproducible baseline evidence
+!docs/
+docs/*
+!docs/REVAMP_PLAN.md
+!docs/BASELINE.md
+!docs/SETUP.md
+!docs/DATASET.md
+!docs/screenshots/
+docs/screenshots/*
+!docs/screenshots/phase-0/
+!docs/screenshots/phase-0/*.png

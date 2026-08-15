@@ -100,7 +100,7 @@ function AudioPlayer({ summary, analysis, onProgress }: { summary: ClipSummary; 
     if (audioRef.current && audioRef.current.duration) {
       audioRef.current.currentTime = p * audioRef.current.duration;
     }
-  }, [DURATION]);
+  }, []);
 
   const togglePlay = () => {
     if (!audioRef.current || !audioRef.current.src) return;
@@ -602,7 +602,7 @@ function Sidebar({ clips, selected, onSelect, onDelete }: { clips: ClipSummary[]
                   <div className="font-display text-[10px] font-bold tracking-wider text-[#dce6f5] uppercase truncate flex items-center justify-between">
                     <span>{clip.driver || "Unknown"}</span>
                     {clip.clip_id.startsWith("upload_") && (
-                      <div 
+                      <div
                         role="button"
                         onClick={(e) => onDelete(e, clip.clip_id)}
                         className="text-[#5a6e8a] hover:text-[#e8002d] transition-colors px-1 cursor-pointer"

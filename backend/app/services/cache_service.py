@@ -9,14 +9,12 @@ Lane: B
 
 import json
 import logging
-from pathlib import Path
-from typing import Optional
 
 from app.config import settings
 
 logger = logging.getLogger(__name__)
 
-_cache: Optional[dict] = None
+_cache: dict | None = None
 
 
 def _audio_exists(clip_id: str) -> bool:
@@ -33,7 +31,7 @@ def load_cache() -> dict:
     if not cache_path.exists():
         logger.warning(f"Cache file not found: {cache_path}. Starting empty.")
         return {}
-    with open(cache_path, "r", encoding="utf-8") as f:
+    with open(cache_path, encoding="utf-8") as f:
         data = json.load(f)
     # data is a list of ClipAnalysis dicts
     return {item["clip_id"]: item for item in data}

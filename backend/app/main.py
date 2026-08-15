@@ -10,10 +10,18 @@ Or from project root:
 
 import logging
 from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from app.config import settings
 
+from app.config import settings
+from app.routes.analyze import router as analyze_router
+from app.routes.audio import router as audio_router
+from app.routes.clips import router as clips_router
+from app.routes.correlation import router as correlation_router
+from app.routes.eval_route import router as eval_router
+from app.routes.health import router as health_router
+from app.routes.laps import router as laps_router
 
 logging.basicConfig(
     level=settings.LOG_LEVEL.upper(),
@@ -40,7 +48,7 @@ async def lifespan(app: FastAPI):
                     file.unlink()
                 except Exception as e:
                     logger.error(f"Failed to delete {file.name}: {e}")
-    
+
     # Remove custom uploads from cache
     to_delete = [c_id for c_id, analysis in cache.items() if analysis.get("source") == "UPLOAD" or c_id.startswith("upload_")]
     if to_delete:
@@ -71,15 +79,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# ── Routes ───────────────────────────────────────────────────────
-from app.routes.health import router as health_router
-from app.routes.clips import router as clips_router
-from app.routes.analyze import router as analyze_router
-from app.routes.laps import router as laps_router
-from app.routes.correlation import router as correlation_router
-from app.routes.audio import router as audio_router
-from app.routes.eval_route import router as eval_router
 
 app.include_router(health_router, prefix="/api")
 app.include_router(clips_router, prefix="/api")

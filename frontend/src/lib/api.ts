@@ -96,7 +96,7 @@ export function analyzeAudio(
       if (xhr.status >= 200 && xhr.status < 300) {
         try {
           resolve(JSON.parse(xhr.responseText));
-        } catch (err) {
+        } catch {
           reject(new Error("Failed to parse response"));
         }
       } else {
@@ -127,7 +127,7 @@ export async function deleteClip(clipId: string): Promise<void> {
   if (isMock) {
     return new Promise(r => setTimeout(r, 500));
   }
-  
+
   const API_BASE = process.env.NEXT_PUBLIC_API_BASE || "http://localhost:8000";
   const res = await fetch(`${API_BASE}/api/clips/${clipId}`, {
     method: "DELETE"
