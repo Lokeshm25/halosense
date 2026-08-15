@@ -452,5 +452,208 @@
     "audio_url": "/api/audio/sai_australia_2018_radio_05",
     "processed_at": "2026-08-14T18:07:44Z",
     "lap_context": null
+  },
+  {
+    "transcript": "What about a different plan, not the original? How does that look?",
+    "words": [
+      {
+        "word": "What",
+        "start": 0.0,
+        "end": 0.28
+      },
+      {
+        "word": "about",
+        "start": 0.28,
+        "end": 0.52
+      },
+      {
+        "word": "a",
+        "start": 0.52,
+        "end": 0.7
+      },
+      {
+        "word": "different",
+        "start": 0.7,
+        "end": 0.96
+      },
+      {
+        "word": "plan,",
+        "start": 0.96,
+        "end": 2.28
+      },
+      {
+        "word": "not",
+        "start": 2.28,
+        "end": 2.52
+      },
+      {
+        "word": "the",
+        "start": 2.52,
+        "end": 2.66
+      },
+      {
+        "word": "original?",
+        "start": 2.66,
+        "end": 3.48
+      },
+      {
+        "word": "How",
+        "start": 3.48,
+        "end": 4.02
+      },
+      {
+        "word": "does",
+        "start": 4.02,
+        "end": 4.12
+      },
+      {
+        "word": "that",
+        "start": 4.12,
+        "end": 4.28
+      },
+      {
+        "word": "look?",
+        "start": 4.28,
+        "end": 4.9
+      }
+    ],
+    "asr_model": "openai/whisper-small",
+    "prosody": {
+      "arousal": 0.5781,
+      "dominance": 0.5872,
+      "valence": 0.6652,
+      "speech_rate_wps": 2.45,
+      "pause_ratio": 0.006,
+      "mean_pause_s": null,
+      "longest_pause_s": null,
+      "rms_energy": 0.256,
+      "pitch_hz": 94.4,
+      "duration_s": 4.929,
+      "word_count": 12
+    },
+    "mood": {
+      "label": "TIRED",
+      "confidence": 0.5,
+      "stress_index": 0.44,
+      "fatigue_index": 0.5,
+      "quadrant": "HIGH_AROUSAL_POSITIVE",
+      "rationale": "High arousal (0.58) with positive valence (0.67). Speech rate 2.5 w/s suggests fatigue.",
+      "contributing_factors": [
+        "positive_valence"
+      ]
+    },
+    "processing_ms": 1644,
+    "mocked": false,
+    "clip_id": "upload_5d0f2e97",
+    "source": "UPLOAD",
+    "driver": "Custom",
+    "race": "Testing",
+    "lap": 1,
+    "session_type": null,
+    "audio_url": "/api/audio/upload_5d0f2e97",
+    "processed_at": "2026-08-15T13:30:05Z",
+    "lap_context": null
+  },
+  {
+    "transcript": "Right, let's settle into it, mate. That's all the pace, let's go.",
+    "words": [
+      {
+        "word": "Right,",
+        "start": 0.0,
+        "end": 0.76
+      },
+      {
+        "word": "let's",
+        "start": 0.76,
+        "end": 1.06
+      },
+      {
+        "word": "settle",
+        "start": 1.06,
+        "end": 1.2
+      },
+      {
+        "word": "into",
+        "start": 1.2,
+        "end": 1.4
+      },
+      {
+        "word": "it,",
+        "start": 1.4,
+        "end": 1.52
+      },
+      {
+        "word": "mate.",
+        "start": 1.52,
+        "end": 1.92
+      },
+      {
+        "word": "That's",
+        "start": 1.92,
+        "end": 2.06
+      },
+      {
+        "word": "all",
+        "start": 2.06,
+        "end": 2.18
+      },
+      {
+        "word": "the",
+        "start": 2.18,
+        "end": 2.3
+      },
+      {
+        "word": "pace,",
+        "start": 2.3,
+        "end": 2.64
+      },
+      {
+        "word": "let's",
+        "start": 2.64,
+        "end": 2.8
+      },
+      {
+        "word": "go.",
+        "start": 2.8,
+        "end": 3.2
+      }
+    ],
+    "asr_model": "openai/whisper-small",
+    "prosody": {
+      "arousal": 0.5261,
+      "dominance": 0.5292,
+      "valence": 0.6677,
+      "speech_rate_wps": 3.75,
+      "pause_ratio": 0.007,
+      "mean_pause_s": null,
+      "longest_pause_s": null,
+      "rms_energy": 0.231,
+      "pitch_hz": 134.3,
+      "duration_s": 3.223,
+      "word_count": 12
+    },
+    "mood": {
+      "label": "CALM",
+      "confidence": 0.582,
+      "stress_index": 0.418,
+      "fatigue_index": 0.2,
+      "quadrant": "HIGH_AROUSAL_POSITIVE",
+      "rationale": "High arousal (0.53) with positive valence (0.67) indicates a calm state.",
+      "contributing_factors": [
+        "positive_valence",
+        "fast_speech"
+      ]
+    },
+    "processing_ms": 1294,
+    "mocked": false,
+    "clip_id": "upload_9ea1276d",
+    "source": "UPLOAD",
+    "driver": "Custom",
+    "race": "Testing",
+    "lap": 1,
+    "session_type": null,
+    "audio_url": "/api/audio/upload_9ea1276d",
+    "processed_at": "2026-08-15T13:30:34Z",
+    "lap_context": null
   }
 ]
